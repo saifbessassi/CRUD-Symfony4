@@ -1,29 +1,13 @@
 <?php
 
-namespace App\Entity;
+namespace App\Tests\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
- */
-class User
+class UserTest
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
+
     private $id;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
     private $username;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
     private $mail;
 
     public function getId(): ?int
@@ -31,12 +15,17 @@ class User
         return $this->id;
     }
 
+    public function setID(int $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
     public function getUsername(): ?string
     {
         return $this->username;
     }
-
-
 
     public function setUsername(string $username): self
     {

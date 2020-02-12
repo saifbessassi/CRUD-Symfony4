@@ -3,10 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
-use App\Repository\UserRepository;
-use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -17,7 +14,7 @@ class UserController extends AbstractController
     /**
      * @param $id
      * @param SerializerInterface $serializer
-     * @return JsonResponse
+     * @return Response
      * @Route("/user/{id}", methods={"GET"})
      */
     public function readUser($id, SerializerInterface $serializer) {
@@ -30,17 +27,20 @@ class UserController extends AbstractController
 
     /**
      * @param $id
-     * @return JsonResponse
+     * @return Response
      * @Route("/user/delete/{id}", methods={"DELETE"})
      */
     public function deleteUser($id) {
         $em = $this->getDoctrine()->getManager();
         $user = $em->getRepository(User::class)->find($id);
-        $em->remove($user);
-        $em->flush();
+        if ($user != null) {
+            $em->remove($user);
+            $em->flush();
+        }
 
-        $response = new JsonResponse();
-        $response->headers->set('Access-Control-Allow-Origin', '*');
+
+        $response = new Response();
+        $response->setStatusCode(200);
         return $response;
     }
 
@@ -70,11 +70,18 @@ class UserController extends AbstractController
 
         $data = $request->getContent();
         $userData = $serializer->deserialize($data, User::class, 'json');
-        $user->setUsername($userData->getUsername());
-        $user->setMail($userData->getMail());
-        $entityManager->flush();
+        if ($userData != null) {
+            if($userData->getUsername()!= null) {
+            $user->setUsername($userData->getUsername());
+            }
+            if($userData->getMail()!= null) {
+                $user->setMail($userData->getMail());
+            }
+            $entityManager->flush();
+        }
 
-        return new JsonResponse($user, 201);
+        $data = $serializer->serialize($user, 'json');
+        return new Response($data, 200);
     }
 
     /**
@@ -92,7 +99,9 @@ class UserController extends AbstractController
         $em->persist($user);
         $em->flush();
 
-        return new JsonResponse($user, 201);
+        $data = $serializer->serialize($user,'json');
+
+        return new Response($data, 201);
     }
 
 

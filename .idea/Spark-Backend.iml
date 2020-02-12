@@ -5,13 +5,17 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" packagePrefix="App\" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" packagePrefix="App\Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/bin/.phpunit" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dama/doctrine-test-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/annotations" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/cache" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/collections" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/common" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/data-fixtures" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/dbal" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/doctrine-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/doctrine-migrations-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/event-manager" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/inflector" />
@@ -48,12 +52,15 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/finder" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/flex" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/framework-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/http-client" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/http-client-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/http-foundation" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/http-kernel" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/inflector" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/maker-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/mime" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/orm-pack" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/phpunit-bridge" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-idn" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php72" />
